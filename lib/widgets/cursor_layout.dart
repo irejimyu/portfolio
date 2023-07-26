@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 class CursorLayout extends StatefulWidget {
-  final Widget body;
-  const CursorLayout({super.key, required this.body});
+  final Widget child;
+  const CursorLayout({super.key, required this.child});
 
   @override
   State<CursorLayout> createState() => _CursorLayoutState();
@@ -43,12 +43,7 @@ class _CursorLayoutState extends State<CursorLayout>
       onExit: (e) => setState(() => pointerOffset = null),
       child: Stack(
         children: [
-          Scaffold(
-            appBar: AppBar(
-              title: Text('asdf'),
-            ),
-            body: widget.body,
-          ),
+          widget.child,
           if (pointerOffset != null) ...[
             AnimatedBuilder(
                 animation: pointerSizeController,
