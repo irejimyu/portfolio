@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/screens/introduction/layouts/introduction_desktop.dart';
+import 'package:portfolio/utils/themes.dart';
 import 'package:portfolio/widgets/cursor_layout.dart';
 
 class RootDesktop extends StatelessWidget {
@@ -11,31 +12,46 @@ class RootDesktop extends StatelessWidget {
       child: Scaffold(
         body: Row(
           children: [
-            const SizedBox(
-              width: 100,
-            ),
-            Expanded(
-              child: ListView(
-                children: const [
-                  IntroductionDesktop(),
-                ],
-              ),
-            ),
-            const SizedBox(
+            SizedBox(
               width: 100,
               child: Column(
+                mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   SizedBox(
                     height: 50,
                     child: VerticalDivider(
                       width: 20,
                       thickness: 3,
-                      color: Colors.grey,
+                      color: AppTheme.appColors.primary,
                     ),
                   ),
-                  Text('ABOUT'),
-                  Text('WORK'),
-                  Text('CONTACT'),
+                ],
+              ),
+            ),
+            Expanded(
+              child: ListView(
+                shrinkWrap: true,
+                children: const [
+                  IntroductionDesktop(),
+                ],
+              ),
+            ),
+            SizedBox(
+              width: 100,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  SizedBox(
+                    height: 50,
+                    child: VerticalDivider(
+                      width: 20,
+                      thickness: 3,
+                      color: AppTheme.appColors.primary,
+                    ),
+                  ),
+                  const Text('ABOUT'),
+                  const Text('WORK'),
+                  const Text('CONTACT'),
                 ],
               ),
             ),

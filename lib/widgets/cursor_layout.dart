@@ -50,13 +50,13 @@ class _CursorLayoutState extends State<CursorLayout>
                 builder: (context, snapshot) {
                   return AnimatedPointer(
                     pointerOffset: pointerOffset!,
-                    radius: 20 + 100 * pointerAnimation.value,
+                    pointer: OuterPointer(15 + 100 * pointerAnimation.value),
                   );
                 }),
             AnimatedPointer(
               pointerOffset: pointerOffset!,
               movementDuration: const Duration(milliseconds: 200),
-              radius: 5,
+              pointer: InnerPointer(4),
             ),
           ],
         ],
@@ -69,12 +69,12 @@ class AnimatedPointer extends StatelessWidget {
   const AnimatedPointer({
     Key? key,
     this.movementDuration = const Duration(milliseconds: 700),
-    this.radius = 30,
+    required this.pointer,
     required this.pointerOffset,
   }) : super(key: key);
   final Duration movementDuration;
+  final CustomPainter pointer;
   final Offset pointerOffset;
-  final double radius;
 
   @override
   Widget build(BuildContext context) {
@@ -84,24 +84,47 @@ class AnimatedPointer extends StatelessWidget {
       top: pointerOffset.dy,
       left: pointerOffset.dx,
       child: CustomPaint(
-        painter: Pointer(radius),
+        painter: pointer,
       ),
     );
   }
 }
 
-class Pointer extends CustomPainter {
+class InnerPointer extends CustomPainter {
   final double radius;
 
-  Pointer(this.radius);
+  InnerPointer(this.radius);
   @override
   void paint(Canvas canvas, Size size) {
     canvas.drawCircle(
       const Offset(0, 0),
       radius,
       Paint()
-        ..color = Colors.white
-        ..blendMode = BlendMode.difference,
+        ..color = Colors.black
+        ..blendMode = BlendMode.src,
+    );
+  }
+
+  @override
+  bool shouldRepaint(covariant CustomPainter oldDelegate) {
+    return false;
+  }
+}
+
+class OuterPointer extends CustomPainter {
+  final double radius;
+
+  OuterPointer(this.radius);
+  @override
+  void paint(Canvas canvas, Size size) {
+    canvas.drawCircle(
+      const Offset(0, 0),
+      radius,
+      Paint()
+        ..strokeWidth = 2
+        ..color = Colors.black
+        ..blendMode = BlendMode.src
+        ..style = PaintingStyle.stroke,
     );
   }
 
