@@ -4,8 +4,8 @@ import 'package:portfolio/utils/themes.dart';
 extension ExtensionWidget on Widget {
   addNeumorphism({
     double borderRadius = 5,
-    Offset offset = const Offset(1, 1),
-    double blurRadius = 4,
+    Offset offset = const Offset(2, 2),
+    double blurRadius = 5,
     Color topShadowColor = const Color(0xffffffff),
     Color bottomShadowColor = const Color(0x54000000),
   }) {
@@ -42,14 +42,14 @@ extension ExtensionText on Text {
         color: AppTheme.appColors.primary,
         shadows: const [
           Shadow(
-            offset: Offset(0, -1),
-            blurRadius: 1,
-            color: Colors.black,
+            offset: Offset(0, 1),
+            blurRadius: 5,
+            color: Colors.white,
           ),
           Shadow(
-            offset: Offset(0, 1),
-            blurRadius: 1,
-            color: Colors.white,
+            offset: Offset(0, -2),
+            blurRadius: 2,
+            color: Colors.black,
           ),
         ],
       ).merge(style),
