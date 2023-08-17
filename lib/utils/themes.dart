@@ -11,10 +11,13 @@ class AppTheme {
   static ThemeData define() {
     return ThemeData(
       primaryColor: appColors.primary,
-      focusColor: appColors.secondary,
       canvasColor: appColors.neutral,
       useMaterial3: true,
-      textTheme: GoogleFonts.poppinsTextTheme(),
+      textTheme: GoogleFonts.bebasNeueTextTheme().apply(
+        displayColor: appColors.primary,
+        bodyColor: appColors.primary,
+      ),
+      iconTheme: IconThemeData(color: appColors.primary),
       scaffoldBackgroundColor: appColors.neutral,
       dividerColor: appColors.primary,
     );

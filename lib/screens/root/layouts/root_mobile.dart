@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/screens/introduction/layouts/introduction_mobile.dart';
+import 'package:portfolio/screens/home/layouts/home_mobile.dart';
 
 class RootMobile extends StatelessWidget {
   const RootMobile({super.key});
@@ -10,7 +10,7 @@ class RootMobile extends StatelessWidget {
       extendBody: true,
       body: ListView(
         children: const [
-          IntroductionMobile(),
+          HomeMobile(),
         ],
       ),
     );

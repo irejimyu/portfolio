@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/utils/colors.dart';
+import 'package:portfolio/utils/themes.dart';
 
 class CursorLayout extends StatefulWidget {
   final Widget child;
@@ -38,7 +40,7 @@ class _CursorLayoutState extends State<CursorLayout>
   @override
   Widget build(BuildContext context) {
     return MouseRegion(
-      cursor: SystemMouseCursors.none,
+      // cursor: SystemMouseCursors.none,
       onHover: (e) => setState(() => pointerOffset = e.localPosition),
       onExit: (e) => setState(() => pointerOffset = null),
       child: Stack(
@@ -53,11 +55,11 @@ class _CursorLayoutState extends State<CursorLayout>
                     pointer: OuterPointer(15 + 100 * pointerAnimation.value),
                   );
                 }),
-            AnimatedPointer(
-              pointerOffset: pointerOffset!,
-              movementDuration: const Duration(milliseconds: 200),
-              pointer: InnerPointer(4),
-            ),
+            // AnimatedPointer(
+            //   pointerOffset: pointerOffset!,
+            //   movementDuration: const Duration(milliseconds: 200),
+            //   pointer: InnerPointer(4),
+            // ),
           ],
         ],
       ),
@@ -100,7 +102,7 @@ class InnerPointer extends CustomPainter {
       const Offset(0, 0),
       radius,
       Paint()
-        ..color = Colors.black
+        ..color = AppTheme.appColors.accent
         ..blendMode = BlendMode.src,
     );
   }
@@ -122,9 +124,8 @@ class OuterPointer extends CustomPainter {
       radius,
       Paint()
         ..strokeWidth = 2
-        ..color = Colors.black
-        ..blendMode = BlendMode.src
-        ..style = PaintingStyle.stroke,
+        ..color = AppTheme.appColors.accent
+        ..blendMode = BlendMode.screen,
     );
   }
 
