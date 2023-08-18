@@ -1,7 +1,11 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:portfolio/screens/home/layouts/home_desktop.dart';
+import 'package:portfolio/screens/contact/introduction_desktop.dart';
+import 'package:portfolio/screens/history/history_desktop.dart';
+import 'package:portfolio/screens/home/home_desktop.dart';
+import 'package:portfolio/screens/introduction/introduction_desktop.dart';
 import 'package:portfolio/utils/themes.dart';
 import 'package:portfolio/widgets/cursor_layout.dart';
 
@@ -57,6 +61,9 @@ class RootDesktop extends StatelessWidget {
                 pageSnapping: false,
                 children: const [
                   HomeDesktop(),
+                  IntroductionDesktop(),
+                  HistoryDesktop(),
+                  ContactDesktop()
                 ],
               ),
             ),
@@ -112,3 +119,20 @@ class RootDesktop extends StatelessWidget {
     );
   }
 }
+
+// class CustomPageViewScrollPhysics extends ScrollPhysics {
+//   const CustomPageViewScrollPhysics({ScrollPhysics? parent})
+//       : super(parent: parent);
+//
+//   @override
+//   CustomPageViewScrollPhysics applyTo(ScrollPhysics? ancestor) {
+//     return CustomPageViewScrollPhysics(parent: buildParent(ancestor)!);
+//   }
+//
+//   @override
+//   SpringDescription get spring => const SpringDescription(
+//         mass: 50,
+//         stiffness: 100,
+//         damping: 0.2,
+//       );
+// }

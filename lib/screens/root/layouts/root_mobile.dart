@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/screens/home/layouts/home_mobile.dart';
+import 'package:portfolio/screens/home/home_mobile.dart';
 
 class RootMobile extends StatelessWidget {
   const RootMobile({super.key});

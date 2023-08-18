@@ -20,6 +20,7 @@ class _HomeDesktopState extends State<HomeDesktop>
   Widget build(BuildContext context) {
     return MouseRegion(
       onHover: (e) => setState(() => pointerOffset = e.localPosition),
+      onExit: (e) => setState(() => pointerOffset = null),
       child: Stack(
         children: [
           AnimatedPositioned(
@@ -51,7 +52,7 @@ class _HomeDesktopState extends State<HomeDesktop>
           AnimatedPositioned(
             curve: Curves.decelerate,
             duration: const Duration(milliseconds: 200),
-            top: 500.h + (pointerOffset.isNull ? 0 : pointerOffset!.dy / 80),
+            top: 400.h + (pointerOffset.isNull ? 0 : pointerOffset!.dy / 80),
             left: 780.w + (pointerOffset.isNull ? 0 : pointerOffset!.dx / 80),
             child: SizedBox(
               height: 400.h,
