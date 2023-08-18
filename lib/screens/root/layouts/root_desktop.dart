@@ -1,16 +1,32 @@
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:portfolio/screens/contact/introduction_desktop.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:portfolio/constants/sizes.dart';
+import 'package:portfolio/screens/contact/contact_desktop.dart';
 import 'package:portfolio/screens/history/history_desktop.dart';
 import 'package:portfolio/screens/home/home_desktop.dart';
 import 'package:portfolio/screens/introduction/introduction_desktop.dart';
 import 'package:portfolio/utils/themes.dart';
 import 'package:portfolio/widgets/cursor_layout.dart';
+import 'package:portfolio/widgets/magnetic_icon_widget.dart';
+import 'package:rive/rive.dart';
 
-class RootDesktop extends StatelessWidget {
+class RootDesktop extends StatefulWidget {
   const RootDesktop({super.key});
+  @override
+  State<RootDesktop> createState() => _RootDesktopState();
+}
+
+class _RootDesktopState extends State<RootDesktop> {
+  final PageController _pageController = PageController(initialPage: 0);
+
+  @override
+  void dispose() {
+    _pageController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -19,36 +35,65 @@ class RootDesktop extends StatelessWidget {
         body: Row(
           children: [
             SizedBox(
-              width: 200.w,
+              width: AppSizes.sideWidth,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: FaIcon(
-                      FontAwesomeIcons.github,
-                      size: 40.sp,
+                  MagneticIcon(
+                    iconSize: AppSizes.mainIconSize,
+                    icon: Container(
+                      margin: const EdgeInsets.all(10),
+                      height: AppSizes.mainIconSize,
+                      width: AppSizes.mainIconSize,
+                      child: RiveAnimation.asset(
+                        'assets/smile.riv',
+                        stateMachines: const ['smile'],
+                        onInit: (Artboard artBoard) {
+                          artBoard.forEachComponent((child) {
+                            if (child is Shape) {
+                              final Shape shape = child;
+                              if (shape.name == 'Mouth') {
+                                shape.strokes.first.paint.color =
+                                    AppTheme.appColors.accent;
+                              }
+                              if (shape.name == 'Eye') {
+                                shape.fills.first.paint.color =
+                                    AppTheme.appColors.accent;
+                              }
+                              // shape.strokes.first.paint.color = Colors.indigo;
+                            }
+                          });
+                        },
+                      ),
                     ),
+                    onPressed: () {
+                      _pageController.animateToPage(
+                        0,
+                        duration: const Duration(seconds: 1),
+                        curve: Curves.decelerate,
+                      );
+                    },
                   ),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: FaIcon(
-                      FontAwesomeIcons.linkedin,
-                      size: 40.sp,
-                    ),
+                  const Spacer(),
+                  MagneticIcon(
+                    icon: const FaIcon(FontAwesomeIcons.github),
+                    iconSize: AppSizes.socialIconSize,
+                    onPressed: () {},
                   ),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: FaIcon(
-                      FontAwesomeIcons.google,
-                      size: 40.sp,
-                    ),
+                  MagneticIcon(
+                    icon: const FaIcon(FontAwesomeIcons.linkedin),
+                    iconSize: AppSizes.socialIconSize,
+                    onPressed: () {},
+                  ),
+                  MagneticIcon(
+                    icon: const FaIcon(FontAwesomeIcons.google),
+                    iconSize: AppSizes.socialIconSize,
+                    onPressed: () {},
                   ),
                   SizedBox(
-                    height: 30,
+                    height: AppSizes.sideLineHeight,
                     child: VerticalDivider(
-                      width: 20,
-                      thickness: 3,
+                      thickness: AppSizes.lineThick,
                       color: AppTheme.appColors.accent,
                     ),
                   ),
@@ -57,6 +102,7 @@ class RootDesktop extends StatelessWidget {
             ),
             Expanded(
               child: PageView(
+                controller: _pageController,
                 scrollDirection: Axis.vertical,
                 pageSnapping: false,
                 children: const [
@@ -68,45 +114,59 @@ class RootDesktop extends StatelessWidget {
               ),
             ),
             SizedBox(
-              width: 200.w,
+              width: AppSizes.sideWidth,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   SizedBox(
-                    height: 30,
+                    height: AppSizes.sideLineHeight,
                     child: VerticalDivider(
-                      width: 20,
-                      thickness: 3,
+                      thickness: AppSizes.lineThick,
                       color: AppTheme.appColors.accent,
                     ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.all(2.0),
+                  GestureDetector(
+                    onTap: () {
+                      _pageController.animateToPage(
+                        1,
+                        duration: const Duration(seconds: 1),
+                        curve: Curves.decelerate,
+                      );
+                    },
                     child: Text(
                       'ABOUT',
-                      style: TextStyle(
-                        fontSize: 30.sp,
-                        letterSpacing: 2,
+                      style: GoogleFonts.lato(
+                        fontSize: AppSizes.navigationFontSize,
                       ),
                     ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.all(2.0),
+                  GestureDetector(
+                    onTap: () {
+                      _pageController.animateToPage(
+                        2,
+                        duration: const Duration(seconds: 1),
+                        curve: Curves.decelerate,
+                      );
+                    },
                     child: Text(
                       'WORK',
-                      style: TextStyle(
-                        fontSize: 30.sp,
-                        letterSpacing: 2,
+                      style: GoogleFonts.lato(
+                        fontSize: AppSizes.navigationFontSize,
                       ),
                     ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.all(2.0),
+                  GestureDetector(
+                    onTap: () {
+                      _pageController.animateToPage(
+                        3,
+                        duration: const Duration(seconds: 1),
+                        curve: Curves.decelerate,
+                      );
+                    },
                     child: Text(
                       'CONTACT',
-                      style: TextStyle(
-                        fontSize: 30.sp,
-                        letterSpacing: 2,
+                      style: GoogleFonts.lato(
+                        fontSize: AppSizes.navigationFontSize,
                       ),
                     ),
                   ),
@@ -119,20 +179,3 @@ class RootDesktop extends StatelessWidget {
     );
   }
 }
-
-// class CustomPageViewScrollPhysics extends ScrollPhysics {
-//   const CustomPageViewScrollPhysics({ScrollPhysics? parent})
-//       : super(parent: parent);
-//
-//   @override
-//   CustomPageViewScrollPhysics applyTo(ScrollPhysics? ancestor) {
-//     return CustomPageViewScrollPhysics(parent: buildParent(ancestor)!);
-//   }
-//
-//   @override
-//   SpringDescription get spring => const SpringDescription(
-//         mass: 50,
-//         stiffness: 100,
-//         damping: 0.2,
-//       );
-// }

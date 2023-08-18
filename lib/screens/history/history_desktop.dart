@@ -13,11 +13,8 @@ class HistoryDesktop extends StatelessWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Padding(
-          padding: EdgeInsets.all(30.h),
-          child: const PageSeparator(
-            separatorText: 'WORK HISTORY',
-          ),
+        const PageSeparator(
+          separatorText: 'WORK HISTORY',
         ),
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -37,9 +34,6 @@ class HistoryDesktop extends StatelessWidget {
                 'Python',
                 'Git',
               ],
-            ),
-            const Divider(
-              color: Colors.transparent,
             ),
             HistoryCard(
               startDate: DateTime(2019, 10),

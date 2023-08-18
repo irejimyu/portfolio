@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio/utils/themes.dart';
 import 'package:portfolio/widgets/separator_widget.dart';
 
@@ -15,11 +16,8 @@ class ContactDesktop extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Padding(
-                padding: EdgeInsets.all(30.h),
-                child: const PageSeparator(
-                  separatorText: 'WHAT\'S NEXT',
-                ),
+              const PageSeparator(
+                separatorText: 'WHAT\'S NEXT',
               ),
               Text(
                 'GET IN TOUCH.',
@@ -53,26 +51,27 @@ class ContactDesktop extends StatelessWidget {
             ],
           ),
         ),
-        Expanded(
+        Padding(
+          padding: EdgeInsets.symmetric(vertical: 50.h),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               Text(
                 'irejimyu@gmail.com',
-                style: TextStyle(
-                  fontSize: 30.sp,
+                style: GoogleFonts.lato(
+                  fontSize: 25.sp,
                 ),
               ),
               Text(
                 'Philippines, Caloocan City',
-                style: TextStyle(
-                  fontSize: 30.sp,
+                style: GoogleFonts.lato(
+                  fontSize: 25.sp,
                 ),
               ),
               Text(
                 '+63 975 455 3481',
-                style: TextStyle(
-                  fontSize: 30.sp,
+                style: GoogleFonts.lato(
+                  fontSize: 25.sp,
                 ),
               ),
             ],
@@ -82,7 +81,7 @@ class ContactDesktop extends StatelessWidget {
           padding: EdgeInsets.all(30.sp),
           child: RichText(
             text: TextSpan(
-              style: TextStyle(
+              style: GoogleFonts.lato(
                 fontSize: 20.sp,
                 color: AppTheme.appColors.primary,
               ),
@@ -92,7 +91,7 @@ class ContactDesktop extends StatelessWidget {
                 ),
                 TextSpan(
                   text: 'Irejim Jeneri Yu',
-                  style: TextStyle(
+                  style: GoogleFonts.lato(
                     color: AppTheme.appColors.accent,
                   ),
                 ),

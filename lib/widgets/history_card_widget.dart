@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio/utils/themes.dart';
 import 'package:intl/intl.dart';
 
@@ -62,13 +63,13 @@ class HistoryCard extends StatelessWidget {
                 ),
                 decoration: BoxDecoration(
                   borderRadius: const BorderRadius.all(
-                    Radius.circular(10),
+                    Radius.circular(50),
                   ),
                   color: AppTheme.appColors.primary,
                 ),
                 child: Text(
                   skill,
-                  style: TextStyle(
+                  style: GoogleFonts.lato(
                     color: AppTheme.appColors.neutral,
                   ),
                 ),

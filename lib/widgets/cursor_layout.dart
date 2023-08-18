@@ -47,14 +47,14 @@ class _CursorLayoutState extends State<CursorLayout>
         children: [
           widget.child,
           if (pointerOffset != null) ...[
-            AnimatedBuilder(
-                animation: pointerSizeController,
-                builder: (context, snapshot) {
-                  return AnimatedPointer(
-                    pointerOffset: pointerOffset!,
-                    pointer: OuterPointer(15 + 100 * pointerAnimation.value),
-                  );
-                }),
+            // AnimatedBuilder(
+            //     animation: pointerSizeController,
+            //     builder: (context, snapshot) {
+            //       return AnimatedPointer(
+            //         pointerOffset: pointerOffset!,
+            //         pointer: OuterPointer(15 + 100 * pointerAnimation.value),
+            //       );
+            //     }),
             // AnimatedPointer(
             //   pointerOffset: pointerOffset!,
             //   movementDuration: const Duration(milliseconds: 200),
