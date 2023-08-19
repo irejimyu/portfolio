@@ -10,95 +10,85 @@ class ContactDesktop extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Expanded(
-          flex: 3,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const PageSeparator(
-                separatorText: 'WHAT\'S NEXT',
-              ),
               Text(
-                'GET IN TOUCH.',
+                'Interested in\nWorking Together?',
                 style: TextStyle(
-                  fontSize: 100.sp,
-                  color: AppTheme.appColors.accent,
+                  fontSize: 200.sp,
+                  color: AppTheme.appColors.primary,
+                  height: 0.9,
                 ),
+                textAlign: TextAlign.center,
               ),
-              Text.rich(
-                TextSpan(
-                  style: TextStyle(
-                    fontSize: 75.sp,
-                    color: AppTheme.appColors.primary,
-                  ),
+              Padding(
+                padding: EdgeInsets.all(20.sp),
+                child: Column(
                   children: [
-                    const TextSpan(
-                      text:
-                          'My inbox is constantly open and I\'m eager for any\nfresh opportunities.'
-                          ' I will do my best to get back to you\nwhether you have a question or are just looking to ',
+                    Text(
+                      'Drop me an email:',
+                      style: GoogleFonts.poppins(
+                        fontSize: 20.sp,
+                        color: AppTheme.appColors.primary,
+                      ),
                     ),
-                    TextSpan(
-                      text: 'say hello!',
-                      style: TextStyle(
-                        color: AppTheme.appColors.accent,
+                    Text(
+                      'irejimyu@gmail.com',
+                      style: GoogleFonts.poppins(
+                        fontSize: 40.sp,
+                        color: AppTheme.appColors.secondary,
                       ),
                     ),
                   ],
                 ),
-                textAlign: TextAlign.center,
               ),
             ],
           ),
         ),
-        Padding(
-          padding: EdgeInsets.symmetric(vertical: 50.h),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              Text(
-                'irejimyu@gmail.com',
-                style: GoogleFonts.lato(
-                  fontSize: 25.sp,
-                ),
-              ),
-              Text(
-                'Philippines, Caloocan City',
-                style: GoogleFonts.lato(
-                  fontSize: 25.sp,
-                ),
-              ),
-              Text(
-                '+63 975 455 3481',
-                style: GoogleFonts.lato(
-                  fontSize: 25.sp,
-                ),
-              ),
-            ],
-          ),
-        ),
-        Padding(
-          padding: EdgeInsets.all(30.sp),
-          child: RichText(
-            text: TextSpan(
-              style: GoogleFonts.lato(
-                fontSize: 20.sp,
-                color: AppTheme.appColors.primary,
-              ),
-              children: [
-                const TextSpan(
-                  text: 'Designed & Built by ',
-                ),
-                TextSpan(
-                  text: 'Irejim Jeneri Yu',
-                  style: GoogleFonts.lato(
-                    color: AppTheme.appColors.accent,
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ),
+        // Column(
+        //   crossAxisAlignment: CrossAxisAlignment.start,
+        //   children: [
+        //     Text(
+        //       'Phone',
+        //       style: GoogleFonts.poppins(
+        //         fontSize: 20.sp,
+        //         color: AppTheme.appColors.primary,
+        //         fontWeight: FontWeight.bold,
+        //       ),
+        //     ),
+        //     Text(
+        //       '+63 975 455 3481',
+        //       style: GoogleFonts.poppins(
+        //         fontSize: 20.sp,
+        //         color: AppTheme.appColors.secondary,
+        //         fontWeight: FontWeight.bold,
+        //       ),
+        //     ),
+        //   ],
+        // ),
+        // RichText(
+        //   text: TextSpan(
+        //     style: GoogleFonts.montserrat(
+        //       fontSize: 20.sp,
+        //       color: AppTheme.appColors.primary,
+        //     ),
+        //     children: [
+        //       const TextSpan(
+        //         text: 'Designed & Built by ',
+        //       ),
+        //       TextSpan(
+        //         text: 'Irejim Jeneri Yu',
+        //         style: TextStyle(
+        //           color: AppTheme.appColors.accent,
+        //         ),
+        //       ),
+        //     ],
+        //   ),
+        // ),
       ],
     );
   }

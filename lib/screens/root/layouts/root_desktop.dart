@@ -12,6 +12,7 @@ import 'package:portfolio/utils/themes.dart';
 import 'package:portfolio/widgets/cursor_layout.dart';
 import 'package:portfolio/widgets/magnetic_icon_widget.dart';
 import 'package:rive/rive.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class RootDesktop extends StatefulWidget {
   const RootDesktop({super.key});
@@ -135,8 +136,9 @@ class _RootDesktopState extends State<RootDesktop> {
                     },
                     child: Text(
                       'ABOUT',
-                      style: GoogleFonts.lato(
+                      style: GoogleFonts.poppins(
                         fontSize: AppSizes.navigationFontSize,
+                        color: AppTheme.appColors.secondary,
                       ),
                     ),
                   ),
@@ -150,8 +152,9 @@ class _RootDesktopState extends State<RootDesktop> {
                     },
                     child: Text(
                       'WORK',
-                      style: GoogleFonts.lato(
+                      style: GoogleFonts.poppins(
                         fontSize: AppSizes.navigationFontSize,
+                        color: AppTheme.appColors.secondary,
                       ),
                     ),
                   ),
@@ -165,8 +168,9 @@ class _RootDesktopState extends State<RootDesktop> {
                     },
                     child: Text(
                       'CONTACT',
-                      style: GoogleFonts.lato(
+                      style: GoogleFonts.poppins(
                         fontSize: AppSizes.navigationFontSize,
+                        color: AppTheme.appColors.secondary,
                       ),
                     ),
                   ),

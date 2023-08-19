@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:portfolio/screens/404/404_desktop.dart';
 import 'screens/root/root_screen.dart';
 import 'utils/themes.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(const MyApp());
 }
 
@@ -18,10 +20,18 @@ class MyApp extends StatelessWidget {
       minTextAdapt: true,
       builder: (context, child) {
         return MaterialApp(
-          title: 'Flutter Demo',
+          title: 'Irejim Jeneri Yu',
           debugShowCheckedModeBanner: false,
+          initialRoute: '/',
           theme: AppTheme.define(),
-          home: const RootScreen(),
+          routes: {
+            '/': (context) => const RootScreen(),
+          },
+          onUnknownRoute: (settings) {
+            return MaterialPageRoute(
+              builder: (_) => const UnknownRoute(),
+            );
+          },
         );
       },
     );

@@ -26,7 +26,7 @@ class PageSeparator extends StatelessWidget {
             child: Divider(
               indent: 50.sp,
               thickness: AppSizes.lineThick,
-              color: AppTheme.appColors.primary,
+              color: AppTheme.appColors.secondary,
             ),
           ),
         ],

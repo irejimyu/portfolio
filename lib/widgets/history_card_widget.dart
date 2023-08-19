@@ -65,12 +65,13 @@ class HistoryCard extends StatelessWidget {
                   borderRadius: const BorderRadius.all(
                     Radius.circular(50),
                   ),
-                  color: AppTheme.appColors.primary,
+                  color: AppTheme.appColors.secondary,
                 ),
                 child: Text(
                   skill,
                   style: GoogleFonts.lato(
                     color: AppTheme.appColors.neutral,
+                    fontWeight: FontWeight.bold,
                   ),
                 ),
               );

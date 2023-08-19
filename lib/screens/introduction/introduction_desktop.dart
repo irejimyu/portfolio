@@ -15,6 +15,7 @@ class IntroductionDesktop extends StatelessWidget {
           separatorText: 'ABOUT ME',
         ),
         Text.rich(
+          textAlign: TextAlign.center,
           TextSpan(
             style: TextStyle(
               fontSize: 100.sp,

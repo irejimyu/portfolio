@@ -39,6 +39,7 @@ dependencies:
   font_awesome_flutter: ^10.5.0
   intl: ^0.18.1
   rive: ^0.11.14
+  url_launcher: ^6.1.12
 
 
 dev_dependencies:

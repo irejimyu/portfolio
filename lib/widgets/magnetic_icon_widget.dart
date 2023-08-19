@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/utils/themes.dart';
 
 class MagneticIcon extends StatefulWidget {
   final Widget icon;
@@ -31,6 +32,7 @@ class _MagneticIconState extends State<MagneticIcon> {
           ),
         duration: const Duration(milliseconds: 200),
         child: IconButton(
+          color: AppTheme.appColors.secondary,
           iconSize: widget.iconSize,
           icon: widget.icon,
           onPressed: widget.onPressed,
