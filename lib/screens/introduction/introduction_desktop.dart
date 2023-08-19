@@ -20,6 +20,7 @@ class IntroductionDesktop extends StatelessWidget {
             style: TextStyle(
               fontSize: 100.sp,
               color: AppTheme.appColors.primary,
+              height: 1,
             ),
             children: [
               const TextSpan(

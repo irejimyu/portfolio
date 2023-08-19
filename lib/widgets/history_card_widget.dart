@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio/utils/themes.dart';
 import 'package:intl/intl.dart';
+import 'package:portfolio/widgets/skill_chip_widget.dart';
 
 class HistoryCard extends StatelessWidget {
   final DateTime startDate;
@@ -23,7 +23,7 @@ class HistoryCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(30.sp),
+      padding: EdgeInsets.symmetric(vertical: 50.sp, horizontal: 30.sp),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -38,6 +38,7 @@ class HistoryCard extends StatelessWidget {
               style: TextStyle(
                 fontSize: 75.sp,
                 color: AppTheme.appColors.primary,
+                height: 1,
               ),
               children: [
                 TextSpan(
@@ -56,25 +57,7 @@ class HistoryCard extends StatelessWidget {
             spacing: 5,
             runSpacing: 5,
             children: skills.map((skill) {
-              return Container(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 10,
-                  vertical: 2,
-                ),
-                decoration: BoxDecoration(
-                  borderRadius: const BorderRadius.all(
-                    Radius.circular(50),
-                  ),
-                  color: AppTheme.appColors.secondary,
-                ),
-                child: Text(
-                  skill,
-                  style: GoogleFonts.lato(
-                    color: AppTheme.appColors.neutral,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              );
+              return SkillChip(text: skill);
             }).toList(),
           )
         ],
