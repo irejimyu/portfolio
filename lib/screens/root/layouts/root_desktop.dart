@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio/constants/sizes.dart';
@@ -12,7 +10,6 @@ import 'package:portfolio/utils/themes.dart';
 import 'package:portfolio/widgets/cursor_layout.dart';
 import 'package:portfolio/widgets/magnetic_icon_widget.dart';
 import 'package:rive/rive.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class RootDesktop extends StatefulWidget {
   const RootDesktop({super.key});
@@ -47,21 +44,21 @@ class _RootDesktopState extends State<RootDesktop> {
                       height: AppSizes.mainIconSize,
                       width: AppSizes.mainIconSize,
                       child: RiveAnimation.asset(
-                        'assets/smile.riv',
-                        stateMachines: const ['smile'],
+                        'assets/rive/smile.riv',
+                        stateMachines: const ['smiley'],
                         onInit: (Artboard artBoard) {
                           artBoard.forEachComponent((child) {
                             if (child is Shape) {
                               final Shape shape = child;
-                              if (shape.name == 'Mouth') {
+                              if (shape.name == 'mouth') {
                                 shape.strokes.first.paint.color =
                                     AppTheme.appColors.accent;
                               }
-                              if (shape.name == 'Eye') {
+                              if (shape.name == 'right eye' ||
+                                  shape.name == 'left eye') {
                                 shape.fills.first.paint.color =
                                     AppTheme.appColors.accent;
                               }
-                              // shape.strokes.first.paint.color = Colors.indigo;
                             }
                           });
                         },
@@ -136,7 +133,7 @@ class _RootDesktopState extends State<RootDesktop> {
                     },
                     child: Text(
                       'ABOUT',
-                      style: GoogleFonts.poppins(
+                      style: TextStyle(
                         fontSize: AppSizes.navigationFontSize,
                         color: AppTheme.appColors.secondary,
                       ),
@@ -152,7 +149,7 @@ class _RootDesktopState extends State<RootDesktop> {
                     },
                     child: Text(
                       'WORK',
-                      style: GoogleFonts.poppins(
+                      style: TextStyle(
                         fontSize: AppSizes.navigationFontSize,
                         color: AppTheme.appColors.secondary,
                       ),
@@ -168,7 +165,7 @@ class _RootDesktopState extends State<RootDesktop> {
                     },
                     child: Text(
                       'CONTACT',
-                      style: GoogleFonts.poppins(
+                      style: TextStyle(
                         fontSize: AppSizes.navigationFontSize,
                         color: AppTheme.appColors.secondary,
                       ),

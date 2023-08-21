@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:portfolio/constants/sizes.dart';
-import 'package:portfolio/screens/root/root_screen.dart';
 import 'package:portfolio/utils/themes.dart';
 import 'package:portfolio/widgets/magnetic_icon_widget.dart';
 import 'package:rive/rive.dart';
@@ -25,7 +23,7 @@ class _UnknownRouteState extends State<UnknownRoute> {
             height: 500.sp,
             width: 500.sp,
             child: RiveAnimation.asset(
-              'assets/sad.riv',
+              'assets/rive/sad.riv',
               stateMachines: const ['sad'],
               onInit: (Artboard artBoard) {
                 artBoard.forEachComponent((child) {

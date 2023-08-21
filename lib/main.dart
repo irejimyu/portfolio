@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:portfolio/screens/404/404_desktop.dart';
+import 'package:portfolio/screens/404/unknown_route.dart';
 import 'screens/root/root_screen.dart';
 import 'utils/themes.dart';
+import 'package:url_strategy/url_strategy.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
+  setPathUrlStrategy();
   runApp(const MyApp());
 }
 
@@ -22,16 +24,8 @@ class MyApp extends StatelessWidget {
         return MaterialApp(
           title: 'Irejim Jeneri Yu',
           debugShowCheckedModeBanner: false,
-          initialRoute: '/',
           theme: AppTheme.define(),
-          routes: {
-            '/': (context) => const RootScreen(),
-          },
-          onUnknownRoute: (settings) {
-            return MaterialPageRoute(
-              builder: (_) => const UnknownRoute(),
-            );
-          },
+          home: const RootScreen(),
         );
       },
     );

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio/utils/themes.dart';
-import 'package:portfolio/widgets/separator_widget.dart';
 
 class ContactDesktop extends StatelessWidget {
   const ContactDesktop({super.key});
@@ -31,14 +30,14 @@ class ContactDesktop extends StatelessWidget {
                   children: [
                     Text(
                       'Drop me an email:',
-                      style: GoogleFonts.poppins(
+                      style: TextStyle(
                         fontSize: 20.sp,
                         color: AppTheme.appColors.primary,
                       ),
                     ),
                     Text(
                       'irejimyu@gmail.com',
-                      style: GoogleFonts.poppins(
+                      style: TextStyle(
                         fontSize: 40.sp,
                         color: AppTheme.appColors.secondary,
                       ),
@@ -49,46 +48,6 @@ class ContactDesktop extends StatelessWidget {
             ],
           ),
         ),
-        // Column(
-        //   crossAxisAlignment: CrossAxisAlignment.start,
-        //   children: [
-        //     Text(
-        //       'Phone',
-        //       style: GoogleFonts.poppins(
-        //         fontSize: 20.sp,
-        //         color: AppTheme.appColors.primary,
-        //         fontWeight: FontWeight.bold,
-        //       ),
-        //     ),
-        //     Text(
-        //       '+63 975 455 3481',
-        //       style: GoogleFonts.poppins(
-        //         fontSize: 20.sp,
-        //         color: AppTheme.appColors.secondary,
-        //         fontWeight: FontWeight.bold,
-        //       ),
-        //     ),
-        //   ],
-        // ),
-        // RichText(
-        //   text: TextSpan(
-        //     style: GoogleFonts.montserrat(
-        //       fontSize: 20.sp,
-        //       color: AppTheme.appColors.primary,
-        //     ),
-        //     children: [
-        //       const TextSpan(
-        //         text: 'Designed & Built by ',
-        //       ),
-        //       TextSpan(
-        //         text: 'Irejim Jeneri Yu',
-        //         style: TextStyle(
-        //           color: AppTheme.appColors.accent,
-        //         ),
-        //       ),
-        //     ],
-        //   ),
-        // ),
       ],
     );
   }

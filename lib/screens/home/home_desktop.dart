@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:portfolio/constants/sizes.dart';
 import 'package:portfolio/utils/painters.dart';
+import 'package:portfolio/utils/themes.dart';
+import 'package:rive/rive.dart';
 
 enum Coordinate {
   x,
@@ -50,8 +52,41 @@ class _HomeDesktopState extends State<HomeDesktop>
           ),
           AnimatedPositioned(
             curve: Curves.decelerate,
+            duration: const Duration(milliseconds: 200),
+            top: position(0.35.sh, 0.02, coordinate: Coordinate.y),
+            left: position(
+              0.58.sw - AppSizes.sideWidth,
+              0.02,
+              coordinate: Coordinate.x,
+            ),
+            child: SizedBox(
+              height: 250.sp,
+              width: 250.sp,
+              child: RiveAnimation.asset(
+                'assets/rive/pencil.riv',
+                stateMachines: const ['pencil'],
+                onInit: (Artboard artBoard) {
+                  artBoard.forEachComponent((child) {
+                    if (child is Shape) {
+                      final Shape shape = child;
+                      if (shape.name == 'Line') {
+                        shape.strokes.first.paint.color =
+                            AppTheme.appColors.accent;
+                      }
+                      if (shape.name == 'Pen') {
+                        shape.fills.first.paint.color =
+                            AppTheme.appColors.accent;
+                      }
+                    }
+                  });
+                },
+              ),
+            ),
+          ),
+          AnimatedPositioned(
+            curve: Curves.decelerate,
             duration: const Duration(milliseconds: 500),
-            top: position(400.h, 0.02, coordinate: Coordinate.y),
+            top: position(0.4.sh, 0.02, coordinate: Coordinate.y),
             left: position(
               0.30.sw - AppSizes.sideWidth,
               0.02,

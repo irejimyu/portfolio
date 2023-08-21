@@ -13,7 +13,7 @@ class SkillChip extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 15.sp),
+      padding: EdgeInsets.symmetric(horizontal: 15.sp, vertical: 5.sp),
       decoration: BoxDecoration(
         borderRadius: const BorderRadius.all(
           Radius.circular(50),
@@ -22,7 +22,7 @@ class SkillChip extends StatelessWidget {
       ),
       child: Text(
         text,
-        style: GoogleFonts.poppins(
+        style: TextStyle(
           color: AppTheme.appColors.neutral,
           fontWeight: FontWeight.bold,
         ),

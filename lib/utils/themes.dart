@@ -16,6 +16,7 @@ class AppTheme {
       textTheme: GoogleFonts.bebasNeueTextTheme().apply(
         displayColor: appColors.primary,
         bodyColor: appColors.primary,
+        fontFamily: 'BebasNeue',
       ),
       iconTheme: IconThemeData(color: appColors.primary),
       scaffoldBackgroundColor: appColors.neutral,
