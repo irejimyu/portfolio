@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio/utils/themes.dart';
 
 class SkillChip extends StatelessWidget {
@@ -25,6 +24,8 @@ class SkillChip extends StatelessWidget {
         style: TextStyle(
           color: AppTheme.appColors.neutral,
           fontWeight: FontWeight.bold,
+          fontSize: 20.sp,
+          fontFamily: 'Futura',
         ),
       ),
     );

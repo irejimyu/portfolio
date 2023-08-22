@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio/constants/sizes.dart';
 import 'package:portfolio/screens/contact/contact_desktop.dart';
 import 'package:portfolio/screens/history/history_desktop.dart';
@@ -8,8 +7,8 @@ import 'package:portfolio/screens/home/home_desktop.dart';
 import 'package:portfolio/screens/introduction/introduction_desktop.dart';
 import 'package:portfolio/utils/themes.dart';
 import 'package:portfolio/widgets/cursor_layout.dart';
-import 'package:portfolio/widgets/magnetic_icon_widget.dart';
-import 'package:rive/rive.dart';
+import 'package:portfolio/widgets/magnetic_widget.dart';
+import 'package:portfolio/widgets/smile_rive_widget.dart';
 
 class RootDesktop extends StatefulWidget {
   const RootDesktop({super.key});
@@ -37,56 +36,52 @@ class _RootDesktopState extends State<RootDesktop> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  MagneticIcon(
-                    iconSize: AppSizes.mainIconSize,
-                    icon: Container(
-                      margin: const EdgeInsets.all(10),
-                      height: AppSizes.mainIconSize,
-                      width: AppSizes.mainIconSize,
-                      child: RiveAnimation.asset(
-                        'assets/rive/smile.riv',
-                        stateMachines: const ['smiley'],
-                        onInit: (Artboard artBoard) {
-                          artBoard.forEachComponent((child) {
-                            if (child is Shape) {
-                              final Shape shape = child;
-                              if (shape.name == 'mouth') {
-                                shape.strokes.first.paint.color =
-                                    AppTheme.appColors.accent;
-                              }
-                              if (shape.name == 'right eye' ||
-                                  shape.name == 'left eye') {
-                                shape.fills.first.paint.color =
-                                    AppTheme.appColors.accent;
-                              }
-                            }
-                          });
-                        },
+                  MagneticWidget(
+                    duration: const Duration(milliseconds: 200),
+                    curve: Curves.decelerate,
+                    child: IconButton(
+                      icon: Container(
+                        margin: const EdgeInsets.all(10),
+                        height: AppSizes.mainIconSize,
+                        width: AppSizes.mainIconSize,
+                        child: const SmileRive(),
                       ),
+                      onPressed: () {
+                        _pageController.animateToPage(
+                          0,
+                          duration: const Duration(seconds: 1),
+                          curve: Curves.decelerate,
+                        );
+                      },
                     ),
-                    onPressed: () {
-                      _pageController.animateToPage(
-                        0,
-                        duration: const Duration(seconds: 1),
-                        curve: Curves.decelerate,
-                      );
-                    },
                   ),
                   const Spacer(),
-                  MagneticIcon(
-                    icon: const FaIcon(FontAwesomeIcons.github),
-                    iconSize: AppSizes.socialIconSize,
-                    onPressed: () {},
+                  MagneticWidget(
+                    duration: const Duration(milliseconds: 200),
+                    curve: Curves.decelerate,
+                    child: IconButton(
+                      icon: const FaIcon(FontAwesomeIcons.github),
+                      iconSize: AppSizes.socialIconSize,
+                      onPressed: () {},
+                    ),
                   ),
-                  MagneticIcon(
-                    icon: const FaIcon(FontAwesomeIcons.linkedin),
-                    iconSize: AppSizes.socialIconSize,
-                    onPressed: () {},
+                  MagneticWidget(
+                    duration: const Duration(milliseconds: 200),
+                    curve: Curves.decelerate,
+                    child: IconButton(
+                      icon: const FaIcon(FontAwesomeIcons.linkedin),
+                      iconSize: AppSizes.socialIconSize,
+                      onPressed: () {},
+                    ),
                   ),
-                  MagneticIcon(
-                    icon: const FaIcon(FontAwesomeIcons.google),
-                    iconSize: AppSizes.socialIconSize,
-                    onPressed: () {},
+                  MagneticWidget(
+                    duration: const Duration(milliseconds: 200),
+                    curve: Curves.decelerate,
+                    child: IconButton(
+                      icon: const FaIcon(FontAwesomeIcons.google),
+                      iconSize: AppSizes.socialIconSize,
+                      onPressed: () {},
+                    ),
                   ),
                   SizedBox(
                     height: AppSizes.sideLineHeight,
@@ -136,6 +131,7 @@ class _RootDesktopState extends State<RootDesktop> {
                       style: TextStyle(
                         fontSize: AppSizes.navigationFontSize,
                         color: AppTheme.appColors.secondary,
+                        fontFamily: 'Futura',
                       ),
                     ),
                   ),
@@ -152,6 +148,7 @@ class _RootDesktopState extends State<RootDesktop> {
                       style: TextStyle(
                         fontSize: AppSizes.navigationFontSize,
                         color: AppTheme.appColors.secondary,
+                        fontFamily: 'Futura',
                       ),
                     ),
                   ),
@@ -168,6 +165,7 @@ class _RootDesktopState extends State<RootDesktop> {
                       style: TextStyle(
                         fontSize: AppSizes.navigationFontSize,
                         color: AppTheme.appColors.secondary,
+                        fontFamily: 'Futura',
                       ),
                     ),
                   ),

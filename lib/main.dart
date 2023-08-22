@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:portfolio/screens/404/unknown_route.dart';
 import 'screens/root/root_screen.dart';
 import 'utils/themes.dart';
 import 'package:url_strategy/url_strategy.dart';

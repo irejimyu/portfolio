@@ -1,6 +1,7 @@
 import 'dart:js_interop';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:portfolio/constants/sizes.dart';
 import 'package:portfolio/utils/painters.dart';
@@ -81,7 +82,10 @@ class _HomeDesktopState extends State<HomeDesktop>
                   });
                 },
               ),
-            ),
+            ).animate().fadeIn(
+                  delay: const Duration(milliseconds: 500),
+                  duration: const Duration(seconds: 1),
+                ),
           ),
           AnimatedPositioned(
             curve: Curves.decelerate,
@@ -98,7 +102,10 @@ class _HomeDesktopState extends State<HomeDesktop>
                 fontSize: 100.sp,
                 height: 1,
               ),
-            ),
+            ).animate().fadeIn(
+                  delay: const Duration(milliseconds: 500),
+                  duration: const Duration(seconds: 1),
+                ),
           ),
           AnimatedPositioned(
             curve: Curves.decelerate,
@@ -117,7 +124,10 @@ class _HomeDesktopState extends State<HomeDesktop>
                   fontSize: 50.sp,
                 ),
               ),
-            ),
+            ).animate().fadeIn(
+                  delay: const Duration(milliseconds: 500),
+                  duration: const Duration(seconds: 1),
+                ),
           ),
         ],
       ),

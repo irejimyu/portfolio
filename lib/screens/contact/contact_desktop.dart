@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio/utils/themes.dart';
 
 class ContactDesktop extends StatelessWidget {
@@ -31,8 +30,9 @@ class ContactDesktop extends StatelessWidget {
                     Text(
                       'Drop me an email:',
                       style: TextStyle(
-                        fontSize: 20.sp,
+                        fontSize: 25.sp,
                         color: AppTheme.appColors.primary,
+                        fontFamily: 'Futura',
                       ),
                     ),
                     Text(
@@ -40,6 +40,7 @@ class ContactDesktop extends StatelessWidget {
                       style: TextStyle(
                         fontSize: 40.sp,
                         color: AppTheme.appColors.secondary,
+                        fontFamily: 'Futura',
                       ),
                     ),
                   ],
