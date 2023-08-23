@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/utils/colors.dart';
 import 'package:portfolio/utils/themes.dart';
 
 class CursorLayout extends StatefulWidget {
@@ -101,7 +102,7 @@ class InnerPointer extends CustomPainter {
       const Offset(0, 0),
       radius,
       Paint()
-        ..color = AppTheme.appColors.accent
+        ..color = AppColors.accent
         ..blendMode = BlendMode.src,
     );
   }
@@ -123,7 +124,7 @@ class OuterPointer extends CustomPainter {
       radius,
       Paint()
         ..strokeWidth = 2
-        ..color = AppTheme.appColors.accent
+        ..color = AppColors.accent
         ..blendMode = BlendMode.screen,
     );
   }

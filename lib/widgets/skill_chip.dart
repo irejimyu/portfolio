@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:portfolio/utils/themes.dart';
+import 'package:portfolio/utils/fonts.dart';
+import 'package:portfolio/utils/colors.dart';
 
 class SkillChip extends StatelessWidget {
   final String text;
@@ -13,19 +14,19 @@ class SkillChip extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 15.sp, vertical: 5.sp),
-      decoration: BoxDecoration(
-        borderRadius: const BorderRadius.all(
+      decoration: const BoxDecoration(
+        color: AppColors.secondary,
+        borderRadius: BorderRadius.all(
           Radius.circular(50),
         ),
-        color: AppTheme.appColors.secondary,
       ),
       child: Text(
         text,
         style: TextStyle(
-          color: AppTheme.appColors.neutral,
+          color: AppColors.neutral,
           fontWeight: FontWeight.bold,
           fontSize: 20.sp,
-          fontFamily: 'Futura',
+          fontFamily: AppFonts.secondaryFont,
         ),
       ),
     );

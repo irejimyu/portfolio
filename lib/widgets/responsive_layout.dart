@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-// ignore: unused_import
-import 'package:portfolio/widgets/cursor_layout.dart';
 
 class ResponsiveLayout extends StatelessWidget {
   final Widget mobileBody;
@@ -16,7 +14,7 @@ class ResponsiveLayout extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(builder: (context, BoxConstraints constraints) {
-      if (constraints.maxWidth < 600) {
+      if (constraints.maxWidth <= 600) {
         return mobileBody;
       }
       // else if (constraints.maxWidth >= 600 && constraints.maxWidth < 1100) {

@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/utils/themes.dart';
+import 'package:portfolio/utils/colors.dart';
 
 class RectanglePainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     var paint = Paint()
       ..strokeWidth = 2
-      ..color = AppTheme.appColors.accent
+      ..color = AppColors.accent
       ..style = PaintingStyle.stroke;
 
     const a = Offset(0, 0);
@@ -24,7 +24,7 @@ class CirclePainter extends CustomPainter {
   void paint(Canvas canvas, Size size) {
     var paint = Paint()
       ..strokeWidth = 2
-      ..color = AppTheme.appColors.accent
+      ..color = AppColors.accent
       ..style = PaintingStyle.stroke;
 
     final center = Offset(size.width / 2, size.height / 2);
@@ -40,7 +40,7 @@ class TrianglePainter extends CustomPainter {
   void paint(Canvas canvas, Size size) {
     var paint = Paint()
       ..strokeWidth = 2
-      ..color = AppTheme.appColors.accent
+      ..color = AppColors.accent
       ..style = PaintingStyle.stroke;
 
     final path = Path();

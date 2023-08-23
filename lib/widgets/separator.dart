@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:portfolio/constants/sizes.dart';
-
-import '../utils/themes.dart';
+import 'package:portfolio/utils/fonts.dart';
+import 'package:portfolio/utils/sizes.dart';
+import 'package:portfolio/utils/colors.dart';
 
 class PageSeparator extends StatelessWidget {
   final String separatorText;
@@ -19,14 +19,15 @@ class PageSeparator extends StatelessWidget {
             style: TextStyle(
               fontSize: 40.sp,
               letterSpacing: 2,
-              color: AppTheme.appColors.accent,
+              color: AppColors.accent,
+              fontFamily: AppFonts.secondaryFont,
             ),
           ),
           Expanded(
             child: Divider(
               indent: 50.sp,
               thickness: AppSizes.lineThick,
-              color: AppTheme.appColors.secondary,
+              color: AppColors.secondary,
             ),
           ),
         ],

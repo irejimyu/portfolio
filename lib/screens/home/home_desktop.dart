@@ -3,10 +3,11 @@ import 'dart:js_interop';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:portfolio/constants/sizes.dart';
+import 'package:portfolio/utils/sizes.dart';
+import 'package:portfolio/utils/strings.dart';
+import 'package:portfolio/utils/colors.dart';
 import 'package:portfolio/utils/painters.dart';
-import 'package:portfolio/utils/themes.dart';
-import 'package:rive/rive.dart';
+import 'package:portfolio/widgets/pencil_rive.dart';
 
 enum Coordinate {
   x,
@@ -63,25 +64,7 @@ class _HomeDesktopState extends State<HomeDesktop>
             child: SizedBox(
               height: 250.sp,
               width: 250.sp,
-              child: RiveAnimation.asset(
-                'assets/rive/pencil.riv',
-                stateMachines: const ['pencil'],
-                onInit: (Artboard artBoard) {
-                  artBoard.forEachComponent((child) {
-                    if (child is Shape) {
-                      final Shape shape = child;
-                      if (shape.name == 'Line') {
-                        shape.strokes.first.paint.color =
-                            AppTheme.appColors.accent;
-                      }
-                      if (shape.name == 'Pen') {
-                        shape.fills.first.paint.color =
-                            AppTheme.appColors.accent;
-                      }
-                    }
-                  });
-                },
-              ),
+              child: const PencilRive(),
             ).animate().fadeIn(
                   delay: const Duration(milliseconds: 500),
                   duration: const Duration(seconds: 1),
@@ -96,11 +79,15 @@ class _HomeDesktopState extends State<HomeDesktop>
               0.02,
               coordinate: Coordinate.x,
             ),
-            child: Text(
-              'PERSONAL\nPORFOLIO',
-              style: TextStyle(
-                fontSize: 100.sp,
-                height: 1,
+            child: Container(
+              padding: EdgeInsets.all(2.sp),
+              color: AppColors.neutral,
+              child: Text(
+                AppStrings.portfolio,
+                style: TextStyle(
+                  fontSize: 100.sp,
+                  height: 1,
+                ),
               ),
             ).animate().fadeIn(
                   delay: const Duration(milliseconds: 500),
@@ -119,7 +106,7 @@ class _HomeDesktopState extends State<HomeDesktop>
             child: FractionalTranslation(
               translation: const Offset(-0.5, -0.5),
               child: Text(
-                'FLUTTER DEVELOPER',
+                AppStrings.position,
                 style: TextStyle(
                   fontSize: 50.sp,
                 ),

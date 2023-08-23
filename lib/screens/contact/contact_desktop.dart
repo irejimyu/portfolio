@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:portfolio/utils/themes.dart';
+import 'package:portfolio/utils/fonts.dart';
+import 'package:portfolio/utils/strings.dart';
+import 'package:portfolio/utils/colors.dart';
 
 class ContactDesktop extends StatelessWidget {
   const ContactDesktop({super.key});
@@ -15,10 +17,10 @@ class ContactDesktop extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                'Interested in\nWorking Together?',
+                AppStrings.contactTitle,
                 style: TextStyle(
                   fontSize: 200.sp,
-                  color: AppTheme.appColors.primary,
+                  color: AppColors.primary,
                   height: 0.9,
                 ),
                 textAlign: TextAlign.center,
@@ -28,19 +30,19 @@ class ContactDesktop extends StatelessWidget {
                 child: Column(
                   children: [
                     Text(
-                      'Drop me an email:',
+                      AppStrings.dropEmail,
                       style: TextStyle(
                         fontSize: 25.sp,
-                        color: AppTheme.appColors.primary,
-                        fontFamily: 'Futura',
+                        color: AppColors.primary,
+                        fontFamily: AppFonts.secondaryFont,
                       ),
                     ),
                     Text(
-                      'irejimyu@gmail.com',
+                      AppStrings.email,
                       style: TextStyle(
                         fontSize: 40.sp,
-                        color: AppTheme.appColors.secondary,
-                        fontFamily: 'Futura',
+                        color: AppColors.secondary,
+                        fontFamily: AppFonts.secondaryFont,
                       ),
                     ),
                   ],

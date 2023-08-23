@@ -2,14 +2,10 @@ import 'package:flutter/material.dart';
 
 @immutable
 class AppColors {
-  // final primary = const Color(0xFF777777);
-  // final accent = const Color(0xFFCB450C);
-  // final neutral = const Color(0xFF111111);
+  const AppColors._();
 
-  final primary = const Color(0xFFB7AB98);
-  final secondary = const Color(0xb8ac9980);
-  final accent = const Color(0xFFCB450C);
-  final neutral = const Color(0xFF0D0D0D);
-
-  const AppColors();
+  static const primary = Color(0xFFB7AB98);
+  static const secondary = Color(0xb8ac9980);
+  static const accent = Color(0xFFCB450C);
+  static const neutral = Color(0xFF0D0D0D);
 }

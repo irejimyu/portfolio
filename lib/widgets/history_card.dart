@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:portfolio/utils/themes.dart';
 import 'package:intl/intl.dart';
-import 'package:portfolio/widgets/skill_chip_widget.dart';
+import 'package:portfolio/utils/colors.dart';
+import 'package:portfolio/widgets/skill_chip.dart';
 
 class HistoryCard extends StatelessWidget {
-  final DateTime startDate;
-  final DateTime endDate;
+  final DateTime start;
+  final DateTime end;
   final String position;
   final String company;
   final List<String> skills;
 
   const HistoryCard({
     super.key,
-    required this.startDate,
-    required this.endDate,
+    required this.start,
+    required this.end,
     required this.position,
     required this.company,
     required this.skills,
@@ -28,7 +28,7 @@ class HistoryCard extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            '${DateFormat('MMMM yyyy').format(startDate)} - ${DateFormat('MMMM yyyy').format(endDate)}',
+            '${DateFormat('MMMM yyyy').format(start)} - ${DateFormat('MMMM yyyy').format(end)}',
             style: TextStyle(
               fontSize: 50.sp,
             ),
@@ -37,14 +37,14 @@ class HistoryCard extends StatelessWidget {
             TextSpan(
               style: TextStyle(
                 fontSize: 75.sp,
-                color: AppTheme.appColors.primary,
+                color: AppColors.primary,
                 height: 1,
               ),
               children: [
                 TextSpan(
                   text: '$position - ',
-                  style: TextStyle(
-                    color: AppTheme.appColors.accent,
+                  style: const TextStyle(
+                    color: AppColors.accent,
                   ),
                 ),
                 TextSpan(

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/widgets/history_card_widget.dart';
-import 'package:portfolio/widgets/separator_widget.dart';
+import 'package:portfolio/utils/strings.dart';
+import 'package:portfolio/widgets/history_card.dart';
+import 'package:portfolio/widgets/separator.dart';
 
 class HistoryDesktop extends StatelessWidget {
   const HistoryDesktop({super.key});
@@ -10,45 +11,18 @@ class HistoryDesktop extends StatelessWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        const PageSeparator(
-          separatorText: 'WORK HISTORY',
-        ),
+        const PageSeparator(separatorText: AppStrings.historyTitle),
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            HistoryCard(
-              startDate: DateTime(2021, 04),
-              endDate: DateTime(2023, 07),
-              position: 'Flutter Developer',
-              company: 'MNK SOFT. CORPORATION',
-              skills: const [
-                'Flutter',
-                'Firebase',
-                'Angular',
-                'AngularJS',
-                'Node.js',
-                'MySQL',
-                'Python',
-                'Git',
-              ],
-            ),
-            HistoryCard(
-              startDate: DateTime(2019, 10),
-              endDate: DateTime(2021, 01),
-              position: 'Junior Programmer',
-              company: 'Lee Systems Technology Ventures',
-              skills: const [
-                'Angular',
-                'AngularJS',
-                'Ionic',
-                'Node.js',
-                'C#',
-                'MySQL',
-                'Php',
-                'Git',
-              ],
-            )
-          ],
+          children: AppStrings.workHistory.map((value) {
+            return HistoryCard(
+              start: value.start,
+              end: value.end,
+              position: value.position,
+              company: value.company,
+              skills: value.skills,
+            );
+          }).toList(),
         )
       ],
     );
