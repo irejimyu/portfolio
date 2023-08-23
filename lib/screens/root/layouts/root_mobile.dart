@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/screens/home/home_mobile.dart';
+import 'package:portfolio/utils/strings.dart';
 
 class RootMobile extends StatelessWidget {
   const RootMobile({super.key});
@@ -8,10 +8,12 @@ class RootMobile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       extendBody: true,
-      body: ListView(
-        children: const [
-          HomeMobile(),
-        ],
+      body: PageView(
+        scrollDirection: Axis.vertical,
+        pageSnapping: true,
+        children: AppStrings.pageAppMobile.map((value) {
+          return value.page;
+        }).toList(),
       ),
     );
   }

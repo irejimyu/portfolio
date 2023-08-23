@@ -3,36 +3,37 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:portfolio/utils/strings.dart';
 import 'package:portfolio/utils/colors.dart';
 import 'package:portfolio/widgets/separator/separator_desktop.dart';
+import 'package:portfolio/widgets/separator/separator_mobile.dart';
 
-class IntroductionDesktop extends StatelessWidget {
-  const IntroductionDesktop({super.key});
+class IntroductionMobile extends StatelessWidget {
+  const IntroductionMobile({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        const PageSeparatorDesktop(separatorText: AppStrings.aboutTitle),
+        const PageSeparatorMobile(separatorText: AppStrings.aboutTitle),
         Text.rich(
           textAlign: TextAlign.center,
           TextSpan(
             style: TextStyle(
-              fontSize: 100.sp,
+              fontSize: 200.sp,
               color: AppColors.primary,
               height: 1,
             ),
             children: const [
               TextSpan(
-                text: 'HI! My NAME IS ',
+                text: 'HI! My NAME IS\n',
               ),
               TextSpan(
-                text: 'IREJIM JENERI YU,',
+                text: 'IREJIM JENERI YU,\n',
                 style: TextStyle(
                   color: AppColors.accent,
                 ),
               ),
               TextSpan(
-                text: '\nan experienced ',
+                text: 'an experienced\n',
               ),
               TextSpan(
                 text: 'Flutter developer\n',
@@ -41,16 +42,16 @@ class IntroductionDesktop extends StatelessWidget {
                 ),
               ),
               TextSpan(
-                text: 'who focuses a significant goal on\ndeveloping ',
+                text: 'who focuses a\nsignificant goal\non developing\n',
               ),
               TextSpan(
-                text: 'web and mobile',
+                text: 'web and mobile\n',
                 style: TextStyle(
                   color: AppColors.accent,
                 ),
               ),
               TextSpan(
-                text: ' experiences.',
+                text: 'experiences.',
               ),
             ],
           ),

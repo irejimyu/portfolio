@@ -2,16 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl/intl.dart';
 import 'package:portfolio/utils/colors.dart';
-import 'package:portfolio/widgets/skill_chip.dart';
+import 'package:portfolio/utils/fonts.dart';
 
-class HistoryCard extends StatelessWidget {
+class HistoryCardDesktop extends StatelessWidget {
   final DateTime start;
   final DateTime end;
   final String position;
   final String company;
   final List<String> skills;
 
-  const HistoryCard({
+  const HistoryCardDesktop({
     super.key,
     required this.start,
     required this.end,
@@ -61,6 +61,36 @@ class HistoryCard extends StatelessWidget {
             }).toList(),
           )
         ],
+      ),
+    );
+  }
+}
+
+class SkillChip extends StatelessWidget {
+  final String text;
+  const SkillChip({
+    super.key,
+    required this.text,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.symmetric(horizontal: 15.sp, vertical: 5.sp),
+      decoration: const BoxDecoration(
+        color: AppColors.secondary,
+        borderRadius: BorderRadius.all(
+          Radius.circular(50),
+        ),
+      ),
+      child: Text(
+        text,
+        style: TextStyle(
+          color: AppColors.neutral,
+          fontWeight: FontWeight.bold,
+          fontSize: 20.sp,
+          fontFamily: AppFonts.secondaryFont,
+        ),
       ),
     );
   }

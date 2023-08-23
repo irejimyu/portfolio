@@ -2,14 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:portfolio/utils/fonts.dart';
 import 'package:portfolio/utils/sizes.dart';
 import 'package:portfolio/utils/colors.dart';
+import 'package:portfolio/utils/strings.dart';
 
 class RightSideBar extends StatelessWidget {
+  final PageController pageController;
+  // final int index;
+
   const RightSideBar({
     super.key,
-    required PageController pageController,
-  }) : _pageController = pageController;
-
-  final PageController _pageController;
+    // required this.index,
+    required this.pageController,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -25,57 +28,34 @@ class RightSideBar extends StatelessWidget {
               color: AppColors.accent,
             ),
           ),
-          GestureDetector(
-            onTap: () {
-              _pageController.animateToPage(
-                1,
-                duration: const Duration(seconds: 1),
-                curve: Curves.decelerate,
-              );
-            },
-            child: Text(
-              'ABOUT',
-              style: TextStyle(
-                fontSize: AppSizes.navigationFontSize,
-                color: AppColors.secondary,
-                fontFamily: AppFonts.secondaryFont,
+          ...AppStrings.pageAppDesktop
+              .asMap()
+              .entries
+              .where((element) => element.key != 0)
+              .map((value) {
+            return GestureDetector(
+              onTap: () {
+                pageController.animateToPage(
+                  value.key,
+                  duration: const Duration(seconds: 1),
+                  curve: Curves.decelerate,
+                );
+              },
+              child: Text(
+                value.value.text.toUpperCase(),
+                style: TextStyle(
+                  fontSize: AppSizes.navigationFontSize,
+                  color: AppColors.secondary,
+                  fontFamily: AppFonts.secondaryFont,
+                  // decoration: index == value.key
+                  //     ? TextDecoration.lineThrough
+                  //     : TextDecoration.none,
+                  decorationColor: AppColors.accent,
+                  decorationThickness: 4,
+                ),
               ),
-            ),
-          ),
-          GestureDetector(
-            onTap: () {
-              _pageController.animateToPage(
-                2,
-                duration: const Duration(seconds: 1),
-                curve: Curves.decelerate,
-              );
-            },
-            child: Text(
-              'WORK',
-              style: TextStyle(
-                fontSize: AppSizes.navigationFontSize,
-                color: AppColors.secondary,
-                fontFamily: AppFonts.secondaryFont,
-              ),
-            ),
-          ),
-          GestureDetector(
-            onTap: () {
-              _pageController.animateToPage(
-                3,
-                duration: const Duration(seconds: 1),
-                curve: Curves.decelerate,
-              );
-            },
-            child: Text(
-              'CONTACT',
-              style: TextStyle(
-                fontSize: AppSizes.navigationFontSize,
-                color: AppColors.secondary,
-                fontFamily: AppFonts.secondaryFont,
-              ),
-            ),
-          ),
+            );
+          }),
         ],
       ),
     );

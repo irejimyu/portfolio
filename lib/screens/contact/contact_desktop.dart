@@ -12,40 +12,33 @@ class ContactDesktop extends StatelessWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Expanded(
+        Text(
+          AppStrings.contactTitle,
+          style: TextStyle(
+            fontSize: 200.sp,
+            color: AppColors.primary,
+            height: 0.9,
+          ),
+          textAlign: TextAlign.center,
+        ),
+        Padding(
+          padding: EdgeInsets.all(20.sp),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                AppStrings.contactTitle,
+                AppStrings.dropEmail,
                 style: TextStyle(
-                  fontSize: 200.sp,
+                  fontSize: 25.sp,
                   color: AppColors.primary,
-                  height: 0.9,
+                  fontFamily: AppFonts.secondaryFont,
                 ),
-                textAlign: TextAlign.center,
               ),
-              Padding(
-                padding: EdgeInsets.all(20.sp),
-                child: Column(
-                  children: [
-                    Text(
-                      AppStrings.dropEmail,
-                      style: TextStyle(
-                        fontSize: 25.sp,
-                        color: AppColors.primary,
-                        fontFamily: AppFonts.secondaryFont,
-                      ),
-                    ),
-                    Text(
-                      AppStrings.email,
-                      style: TextStyle(
-                        fontSize: 40.sp,
-                        color: AppColors.secondary,
-                        fontFamily: AppFonts.secondaryFont,
-                      ),
-                    ),
-                  ],
+              Text(
+                AppStrings.email,
+                style: TextStyle(
+                  fontSize: 40.sp,
+                  color: AppColors.secondary,
+                  fontFamily: AppFonts.secondaryFont,
                 ),
               ),
             ],

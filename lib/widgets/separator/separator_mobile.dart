@@ -4,9 +4,9 @@ import 'package:portfolio/utils/fonts.dart';
 import 'package:portfolio/utils/sizes.dart';
 import 'package:portfolio/utils/colors.dart';
 
-class PageSeparator extends StatelessWidget {
+class PageSeparatorMobile extends StatelessWidget {
   final String separatorText;
-  const PageSeparator({super.key, required this.separatorText});
+  const PageSeparatorMobile({super.key, required this.separatorText});
 
   @override
   Widget build(BuildContext context) {
@@ -14,10 +14,17 @@ class PageSeparator extends StatelessWidget {
       padding: EdgeInsets.all(30.h),
       child: Row(
         children: [
+          Expanded(
+            child: Divider(
+              endIndent: 50.sp,
+              thickness: AppSizes.lineThick,
+              color: AppColors.secondary,
+            ),
+          ),
           Text(
             separatorText,
             style: TextStyle(
-              fontSize: 40.sp,
+              fontSize: 100.sp,
               letterSpacing: 2,
               color: AppColors.accent,
               fontFamily: AppFonts.secondaryFont,

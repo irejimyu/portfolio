@@ -1,11 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/utils/fonts.dart';
-import 'package:portfolio/utils/sizes.dart';
-import 'package:portfolio/screens/contact/contact_desktop.dart';
-import 'package:portfolio/screens/history/history_desktop.dart';
-import 'package:portfolio/screens/home/home_desktop.dart';
-import 'package:portfolio/screens/introduction/introduction_desktop.dart';
-import 'package:portfolio/utils/colors.dart';
+import 'package:portfolio/utils/strings.dart';
 import 'package:portfolio/widgets/cursor_layout.dart';
 import 'package:portfolio/widgets/left_sidebar.dart';
 import 'package:portfolio/widgets/right_sidebar.dart';
@@ -37,12 +31,9 @@ class _RootDesktopState extends State<RootDesktop> {
                 controller: _pageController,
                 scrollDirection: Axis.vertical,
                 pageSnapping: false,
-                children: const [
-                  HomeDesktop(),
-                  IntroductionDesktop(),
-                  HistoryDesktop(),
-                  ContactDesktop()
-                ],
+                children: AppStrings.pageAppDesktop.map((value) {
+                  return value.page;
+                }).toList(),
               ),
             ),
             RightSideBar(pageController: _pageController),

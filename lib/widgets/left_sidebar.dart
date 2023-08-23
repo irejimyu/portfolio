@@ -33,9 +33,9 @@ class LeftSideBar extends StatelessWidget {
               ),
               onPressed: () {
                 _pageController.animateToPage(
-                  0,
                   duration: const Duration(seconds: 1),
                   curve: Curves.decelerate,
+                  0,
                 );
               },
             ),
@@ -46,6 +46,7 @@ class LeftSideBar extends StatelessWidget {
               duration: const Duration(milliseconds: 200),
               curve: Curves.decelerate,
               child: IconButton(
+                highlightColor: AppColors.accent,
                 icon: value.icon,
                 iconSize: AppSizes.socialIconSize,
                 onPressed: () async {

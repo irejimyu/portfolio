@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/utils/colors.dart';
-import 'package:portfolio/utils/themes.dart';
 
 class CursorLayout extends StatefulWidget {
   final Widget child;
