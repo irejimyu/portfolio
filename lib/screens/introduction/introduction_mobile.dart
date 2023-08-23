@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:portfolio/utils/strings.dart';
 import 'package:portfolio/utils/colors.dart';
-import 'package:portfolio/widgets/separator/separator_desktop.dart';
 import 'package:portfolio/widgets/separator/separator_mobile.dart';
 
 class IntroductionMobile extends StatelessWidget {

@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:portfolio/utils/fonts.dart';
-import 'package:portfolio/utils/sizes.dart';
 import 'package:portfolio/utils/strings.dart';
 import 'package:portfolio/utils/colors.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -24,10 +22,10 @@ class ContactMobile extends StatelessWidget {
           textAlign: TextAlign.center,
         ),
         Row(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: AppStrings.socialLinks.map((value) {
             return Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: EdgeInsets.all(8.sp),
               child: IconButton(
                 color: AppColors.accent,
                 icon: value.icon,
@@ -39,6 +37,8 @@ class ContactMobile extends StatelessWidget {
                   );
                   if (await canLaunchUrl(launchUri)) {
                     launchUrl(launchUri);
+                  } else {
+                    print('could not launch');
                   }
                 },
               ),

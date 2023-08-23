@@ -77,12 +77,12 @@ class AppStrings {
       scheme: UrlScheme.https,
     ),
     Social(
-      icon: const Icon(Icons.email),
+      icon: const FaIcon(FontAwesomeIcons.solidEnvelope),
       link: email,
       scheme: UrlScheme.mailto,
     ),
     Social(
-      icon: const Icon(Icons.phone),
+      icon: const FaIcon(FontAwesomeIcons.phone),
       link: phone,
       scheme: UrlScheme.tel,
     ),
