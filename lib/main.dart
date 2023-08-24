@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'screens/root/root_screen.dart';
+import 'package:portfolio/screens/splash/splash.dart';
 import 'utils/themes.dart';
 import 'package:url_strategy/url_strategy.dart';
 
@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
           title: 'Irejim Jeneri Yu',
           debugShowCheckedModeBanner: false,
           theme: AppTheme.define(),
-          home: const RootScreen(),
+          home: const SplashScreen(),
         );
       },
     );

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:portfolio/utils/strings.dart';
 import 'package:portfolio/utils/colors.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:url_launcher/link.dart';
 
 class ContactMobile extends StatelessWidget {
   const ContactMobile({super.key});
@@ -21,29 +21,25 @@ class ContactMobile extends StatelessWidget {
           ),
           textAlign: TextAlign.center,
         ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: AppStrings.socialLinks.map((value) {
-            return Padding(
-              padding: EdgeInsets.all(8.sp),
-              child: IconButton(
-                color: AppColors.accent,
-                icon: value.icon,
-                iconSize: 150.sp,
-                onPressed: () async {
-                  final Uri launchUri = Uri(
-                    scheme: value.scheme.name,
-                    path: value.link,
+        Padding(
+          padding: EdgeInsets.only(top: 50.h),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: AppStrings.socialLinks.map((value) {
+              return Link(
+                target: LinkTarget.blank,
+                uri: Uri.parse('${value.scheme.name}://${value.link}'),
+                builder: (context, followLink) {
+                  return IconButton(
+                    color: AppColors.accent,
+                    icon: value.icon,
+                    iconSize: 150.sp,
+                    onPressed: followLink,
                   );
-                  if (await canLaunchUrl(launchUri)) {
-                    launchUrl(launchUri);
-                  } else {
-                    print('could not launch');
-                  }
                 },
-              ),
-            );
-          }).toList(),
+              );
+            }).toList(),
+          ),
         )
       ],
     );
